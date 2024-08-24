@@ -1,89 +1,44 @@
 .header__title {
-    text-align: center;
-    padding-block: 20px 35px;
+  padding-block: 20px 35px;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
-    grid-template-rows: repeat(3, 200px);
-    padding-inline: 100px;
-    justify-content: center;
-    gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: repeat(3, 200px);
+  justify-content: center;
+  gap: 50px;
+  padding-inline: 100px;
 }
 
-.gallery__image-wrapper {
-    block-size: 200px;
-    inline-size: 300px;
-    outline: 15px solid #fff;
-    justify-self: center;
-
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.image {
-    display: block;
-    block-size: 100%;
-    inline-size: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image:hover {
-    transform: scale(1.1);
-}
-
-.popup {
-    /* display: none; */
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100%;
-    background-color: rgba(0 0 0 / 0.6);
-}
-
-.popup-wrapper {
-    position: fixed;
-    inline-size: 65%;
-    inset-inline-start: 50%;
-    inset-block-start: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius: 20px;
-}
-
-.popup__image {
-    display: block;
-    padding: 10px 10px 0;
-    inline-size: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 25px;
-}
-
-.popup__info {
-    display: flex;
-    gap: 10px;
-    padding: 20px 10px 20px 0;
-    justify-content: end;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.popup__info-close-icon {
-    block-size: 30px;
-    inline-size: 30px;
+.footer {
+  padding: 35px;
 }
 
 .footer__title {
-    text-align: center;
-    padding-block: 35px 5px;
+  padding-block-end: 5px;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
 }
 
 .footer__text {
-    text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
+
+@media screen and (width <= 1100px) {
+  .gallery {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media screen and (width <= 768px) {
+  .gallery {
+    grid-template-columns: repeat(1, 300px);
+  }
 }

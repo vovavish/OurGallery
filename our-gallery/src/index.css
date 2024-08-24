@@ -5,8 +5,10 @@
 }
 
 body {
-  width: 1440px;
   margin: 0 auto;
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+  font-family: 'Roboto', sans-serif;
   background-color: rgb(239, 246, 254);
 }
 
