@@ -8,7 +8,7 @@ function AlbomCover({ albomName, albomPreviewImage, totalImages }) {
     <div>
       <div className={styles.albom_wrapper}>
         <Link to={`/album/${albomName}`}>
-          <img className={styles.albom} src={base_image_url + albomPreviewImage} alt={albomName} />
+          <img className={styles.albom} src={`${base_image_url + albomPreviewImage}`} alt={albomName} />
         </Link>
       </div>
       <div className={styles.albom__info}>

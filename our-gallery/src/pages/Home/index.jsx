@@ -14,8 +14,8 @@ function Home() {
   const currentPage = parseInt(searchParams.get('page')) || 1;
 
   useEffect(() => {
-    function fetchAlboms(limit, page) {
-      fetch(`http://localhost:8055/items/gallery?aggregate[count]=albom_id&groupBy[]=albom_id`)
+    async function fetchAlboms() {
+      await fetch(`http://localhost:8055/items/gallery?aggregate[count]=albom_id&groupBy[]=albom_id`)
         .then((res) => res.json())
         .then((res) => {
           setAlbomsImagesCounter(res.data);
@@ -29,7 +29,7 @@ function Home() {
     }
 
     fetchAlboms(LIMIT_ALBOMS, currentPage);
-  }, [searchParams]);
+  }, [searchParams, currentPage]);
 
   return (
     <div>

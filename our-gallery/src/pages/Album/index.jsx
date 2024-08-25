@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, useParams, Link } from 'react-router-dom';
 
 import GalleryImage from '../../components/GalleryImage';
@@ -16,8 +16,13 @@ const Album = () => {
 
   const LIMIT_IMAGES = 9;
   const currentPage = parseInt(searchParams.get('page')) || 1;
+  PopupImageStore.setCurrentPage(currentPage);
 
   useEffect(() => {
+    if (!imageId) {
+      PopupImageStore.isOpen = false;
+    }
+
     let albomId = 0;
     async function fetchGalleryImages(limit, page) {
       await fetch(`http://localhost:8055/items/albom?filter[albom_name]=${album}`)
@@ -25,16 +30,31 @@ const Album = () => {
         .then((res) => {
           albomId = res.data[0].id;
         });
-      fetch(
+      await fetch(
         `http://localhost:8055/items/gallery?limit=${limit}&page=${page}&filter[albom_id][_eq]=${albomId}`,
       )
         .then((res) => res.json())
         .then((res) => {
           setGalleryImages(res.data);
+          fetch(`http://localhost:8055/items/gallery?filter[albom_id][_eq]=${albomId}`)
+            .then(res => res.json())
+            .then(res => {
+              PopupImageStore.setCurrentAlbom(res.data);
+              if (imageId) {
+                if (imageId - 1 < res.data.length) {
+                  PopupImageStore.setImageId(res.data[imageId - 1].image);
+                  PopupImageStore.setImageAltText(res.data[imageId - 1].imageName);
+                  PopupImageStore.setCurrentImageNumber(imageId);
+                  PopupImageStore.isOpen = true;
+                }
+              }
+            })
+
         });
     }
+
     fetchGalleryImages(LIMIT_IMAGES, currentPage);
-  }, [searchParams]);
+  }, [searchParams, currentPage, imageId, album]);
 
   return (
     <div>
@@ -50,6 +70,7 @@ const Album = () => {
               id={(currentPage - 1) * LIMIT_IMAGES + index + 1}
               imageId={image.image}
               altText={image.imageName}
+              album={album}
               popupOnOpen={(imageId, altText, currentImageNumber) => {
                 PopupImageStore.setImageId(imageId);
                 PopupImageStore.setImageAltText(altText);

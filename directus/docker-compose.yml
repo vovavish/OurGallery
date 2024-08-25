@@ -16,3 +16,4 @@ services:
       WEBSOCKETS_ENABLED: "true"
       CORS_ENABLED: "true"
       CORS_ORIGIN: "true"
+      ASSETS_TRANSFORM_IMAGE_MAX_DIMENSION: "8000"

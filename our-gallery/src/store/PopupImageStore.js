@@ -1,11 +1,13 @@
 import {makeAutoObservable} from 'mobx';
 
-class PopupImageStore {
+class popupImageStore {
   isOpen = false;
   imageId = '';
   imageAltText = '';
   currentImageNumber = 0;
   totalImages = 0;
+  currentAlbom = [];
+  currentPage = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -24,12 +26,26 @@ class PopupImageStore {
   }
   
   setCurrentImageNumber(currentImageNumber) {
-    this.currentImageNumber = currentImageNumber;
+    if (currentImageNumber < 1) {
+      this.currentImageNumber = 1
+    } else {
+      this.currentImageNumber = currentImageNumber;
+    }
   }
 
   setTotalImages(totalImages) {
     this.totalImages = totalImages;
   }
+
+  setCurrentAlbom(currentAlbom) {
+    this.currentAlbom = currentAlbom;
+  }
+
+  setCurrentPage(currentPage) {
+    this.currentPage = currentPage;
+  }
 }
 
-export default new PopupImageStore();
+const PopupImageStore = new popupImageStore();
+
+export default PopupImageStore;

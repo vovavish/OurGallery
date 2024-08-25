@@ -42,6 +42,7 @@
 .popup__info_number_close_wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -49,10 +50,30 @@
   color: rgb(147, 173, 130);
 }
 
+.popup__info_switch_image_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  block-size: 100%;
+}
+
+.popup__link_switch_image {
+  text-decoration: none;
+  font-size: 25px;
+  color: #0f7afc;
+}
+
+.popup__link_switch_image:hover {
+  color: #498ee1;
+}
+
 .popup__close_button {
+  display: flex;
   border: none;
   padding: 0;
   background-color: transparent;
+  block-size: 100%;
 }
 
 .popup__close_icon {

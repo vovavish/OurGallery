@@ -30,10 +30,10 @@ function PaginationImages({ album, limit, currentPage }) {
           });
       }
       fetchAlbomImages();
-  }, []);
+  }, [album, limit]);
 
   const hasMorePage = () => {
-    const recievedPostsCount = limit * currentPage;
+    const recievedPostsCount = limit * PopupImageStore.currentPage;
     return recievedPostsCount < totalImagesCount;
   };
 
@@ -41,16 +41,17 @@ function PaginationImages({ album, limit, currentPage }) {
     <div className={styles.PaginationWrapper}>
       <Link
         className={`${styles.PaginationPageLink}`}
-        to={currentPage <= 1 ? `?page=1` : `?page=${currentPage - 1}`}
+        onClick={() => PopupImageStore.currentPage <= 1 ? PopupImageStore.currentPage = 1 : PopupImageStore.currentPage -= 1}
+        to={PopupImageStore.currentPage <= 1 ? `?page=1` : `/album/${album}/?page=${PopupImageStore.currentPage - 1}`}
       >
         &lt;
       </Link>
       {Array.from(Array(totalPagesCount), (_, i) => i + 1).map((page) => (
         <Link
           key={page}
-          to={page === 1 ? '/' : `?page=${page}`}
+          to={`/album/${album}/?page=${page}`}
           className={`${styles.PaginationPageLink} ${
-            page === currentPage ? styles.PaginationActivePage : ''
+            page === PopupImageStore.currentPage ? styles.PaginationActivePage : ''
           }`}
         >
           {page}
@@ -58,7 +59,7 @@ function PaginationImages({ album, limit, currentPage }) {
       ))}
       <Link
         className={styles.PaginationPageLink}
-        to={hasMorePage() ? `?page=${currentPage + 1}` : `?page=${currentPage}`}
+        to={hasMorePage() ? `/album/${album}/?page=${PopupImageStore.currentPage + 1}` : `/album/${album}/?page=${PopupImageStore.currentPage}`}
       >
         &gt;
       </Link>
