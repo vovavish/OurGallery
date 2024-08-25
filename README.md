@@ -72,11 +72,3 @@
 Далее приложение полностью доступно по адресу localhost:3000/
 
 ## c. Скрины работающего приложения
-### Главная страница альбомов
-![Главная страница альбомов](https://github.com/vovavish/OurGallery/blob/main/Screenshot%202024-08-26%20011556.png)
-### Страница альбома Mountains
-![Страница альбома Mountains](https://github.com/vovavish/OurGallery/blob/main/Screenshot%202024-08-26%20011619.png)
-### Страница альбома Mountains на 3 странице
-![Главная страница альбомов](https://github.com/vovavish/OurGallery/blob/main/Screenshot%202024-08-26%20011721.png)
-### Откытое модальное окно изображения в альбоме
-![Главная страница альбомов](https://github.com/vovavish/OurGallery/blob/main/Screenshot%202024-08-26%20011648.png)
