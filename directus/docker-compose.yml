@@ -17,3 +17,13 @@ services:
       CORS_ENABLED: "true"
       CORS_ORIGIN: "true"
       ASSETS_TRANSFORM_IMAGE_MAX_DIMENSION: "8000"
+  
+  react:
+    build: ../our-gallery
+    container_name: our-gallery-container
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - directus

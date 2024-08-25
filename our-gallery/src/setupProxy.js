@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.use(
     '/directus/',
     createProxyMiddleware({
-      target: 'http://localhost:8055/',
+      target: 'http://directus:8055/',
       changeOrigin: true,
       pathRewrite: {
         '^/directus': ''
