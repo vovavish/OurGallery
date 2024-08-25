@@ -1,0 +1,29 @@
+.albom_wrapper {
+  justify-self: center;
+  border-radius: 10px;
+  outline: 15px solid #fff;
+  overflow: hidden;
+  block-size: 200px;
+  inline-size: 300px;
+}
+
+.albom {
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.albom:hover {
+  transform: scale(1.1);
+}
+
+.albom__info {
+  display: flex;
+  justify-content: space-between;
+  padding-block-start: 20px;
+}

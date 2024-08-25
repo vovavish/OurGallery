@@ -45,6 +45,10 @@
   gap: 10px;
 }
 
+.popup__info_number_images {
+  color: rgb(147, 173, 130);
+}
+
 .popup__close_button {
   border: none;
   padding: 0;

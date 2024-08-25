@@ -1,0 +1,44 @@
+.PaginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 40px 0;
+  font-size: 20px;
+  flex-wrap: wrap;
+}
+
+.PaginationSwitch {
+  text-decoration: none;
+  background-color: #fff;
+  block-size: 30px;
+  inline-size: 30px;
+  border-radius: 50%;
+}
+
+.PaginationSwitch:hover {
+  margin-block-end: -3px;
+  border-bottom: 3px solid rgb(124, 166, 225);
+}
+
+.PaginationPageLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #fff;
+  block-size: 30px;
+  inline-size: 30px;
+  border-radius: 50%;
+  transition: background-color 0.05s linear;
+}
+
+.PaginationPageLink:hover {
+  color: #fff;
+  background-color: rgb(124, 166, 225);
+}
+
+.PaginationActivePage {
+  color: #fff;
+  background-color: rgb(49, 129, 243);
+}
